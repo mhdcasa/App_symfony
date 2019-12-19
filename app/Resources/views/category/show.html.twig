@@ -1,0 +1,48 @@
+{% extends 'back.html.twig' %}
+
+{% block content %}
+    <h1>Category</h1>
+
+
+
+    
+{% for flash_bag in app.session.flashBag.get("success") %}
+   <span class="alert-success"> {{flash_bag}} </span>
+{% endfor %}
+
+
+
+
+
+
+    <div class="card card-default">
+        <div class="card-heading">
+            <h3 class="card-title">{{ category.libelle }} N° {{ category.id }}</h3>
+        </div>
+
+        <div class="card-body">
+            <h5>{{ category.libelle }}</h5>
+            <p>{{ category.description }}</p>
+            <span class="alert-warning">{{ category.slug }}</span><br>
+            <small><strong>Created At</strong>{% if category.createAt %}{{ category.createAt|date('Y-m-d H:i:s') }}{% endif %}</small>
+            <br>
+            <small><strong>Updated At</strong>{% if category.updateAt %}{{ category.updateAt|date('Y-m-d H:i:s') }}{% endif %}</small>
+        </div>
+    </div>
+
+
+
+    <ul class="list-unstyled">
+        <li style="margin-top:20px; margin-bottom:20px">
+            <a href="{{ path('admin_category_index') }}" class="btn btn-primary btn-block">Back to the list</a>
+        </li>
+        <li style="margin-bottom:20px">
+            <a href="{{ path('admin_category_edit', { 'id': category.id }) }}" class="btn btn-warning btn-block">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete" class="btn btn-primary btn-success btn-block">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

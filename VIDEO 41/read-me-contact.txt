@@ -1,0 +1,10 @@
+61-Formation symfony 3 -  les Services -  mohamed idbrahim.mp4
+
+Un service c'est une juste une classe li fiha des méthodes a consomé
+
+
+p ha d methode kansamiwha injection independance 
+parmis les services kayn :
+1=>swiftmailer
+2=>getdoctrine
+3=>getRepository

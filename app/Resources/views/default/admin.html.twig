@@ -1,0 +1,26 @@
+{% extends 'back.html.twig' %}
+
+
+{% block breadcrumb %}
+<ul class="breadcrumb">
+	<li><a href="#"> Tableade bord </a></li> / 
+	<li class="active"> Lites des categories</li>
+</ul>
+{% endblock %}
+
+{% block content %}
+<h1>Bienvenue dans la page admin</h1>
+<strong>{{app.user.id}}</strong><br>
+{{app.user.username}} <br>
+{{app.user.email}} <br>
+
+{% for role in app.user.roles %}
+    <li>{{role}}</li>
+{% endfor %}
+{% endblock %}
+
+
+
+{% block stylesheets %}
+
+{% endblock %}

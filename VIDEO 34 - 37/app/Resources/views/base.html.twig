@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="stylesheet" href="{{asset('back/css/bootstrap.css')}}">
+        <link rel="stylesheet" href="{{asset('back/css/font-awesome.min.css')}}">
+    </head>
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">App_Symfony</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor02">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#"><i class="fa fa-home"></i>Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Features</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Pricing</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">About</a>
+      </li>
+    </ul>
+    
+    <ul class="nav navbar navbar-right">
+
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{path('fos_user_profile_show')}}">{{'layout.logged_in_as' | trans({}, 'FOSUserBundle')}} {{app.user.username}}</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{path('fos_user_security_logout')}}">{{'layout.logout' | trans({}, 'FOSUserBundle')}}</a>
+        </li>
+
+        {% else %}
+        <li class="nav-item">
+            <a class="nav-link" href="{{path('fos_user_security_login')}}">{{'layout.login' | trans({}, 'FOSUserBundle')}}</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{path('fos_user_registration_register')}}">{{'layout.register' | trans({}, 'FOSUserBundle')}}</a>
+        </li>   
+        {% endif %}     
+
+    </ul>
+  </div>
+</nav>    
+    <body>
+
+
+
+      <div class="container">
+        <div class="row">
+
+          <div class="col-md-6">
+            {% block breadcrumb %}
+            {% endblock %}
+          </div>
+
+          <div class="col-md-6 text-right">
+            <select name="accesrapide" id="">
+              <option value="">Nouveau post</option>
+              <option value="">Nouvelle catégorie</option>
+            </select>
+          </div>
+          
+
+
+          <div class="col-md-4" id="col-list-groupe">
+            <ul class="list-group">
+              <li class="list-group-item"><a href="#">Tableau de bord</a></li>
+              <li class="list-group-item">Catégorie</li>
+              <li class="list-group-item"><a href="#">Liste des catégories</a></li>
+              <li class="list-group-item"><a href="#">Nouvelle categorie</a></li>
+              <li class="list-group-item">Article</li>
+              <li class="list-group-item"><a href="#">Liste des articles</a></li>
+              <li class="list-group-item"><a href="#">Nouveau Article</a></li>
+              <li class="list-group-item">Administration</li>
+              <li class="list-group-item"><a href="#">Statistique</a></li>
+              <li class="list-group-item"><a href="#">parametrages</a></li>
+            </ul>
+          </div>
+
+          <div class="col-md-8" id="my_content">
+            {% block content %}
+
+            {% endblock %}
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

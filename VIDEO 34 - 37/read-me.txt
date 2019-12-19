@@ -1,0 +1,79 @@
+34-Formation symfony 3 - Sécurité  authentification  autorisation -Installation FOSUserBundle -cours 34.mp4
+
+Installation composer https://getcomposer.org/download/ pour windows,mac et linux
+
+
+COMPOSER ERROR   https://getcomposer.org/doc/articles/troubleshooting.md#memory-limit-errors
+
+
+Bach n installiw fosUserBundle khasna ndozo b 7 étapes
+
+mli kanwsal étape dyal n ajouter une Class "User" kanmchi l appBundle o kanzid dossier Entity 
+okandir wast mano class fichier User.php avec une class de Class User o ncoller fih l code li 
+déja dart lih copier
+
+Step 4: Configure your application's security.yml¶ ETAPE 4 f had l'etape kanmchi l fichier secuity 
+o ncoller toutes les lignes li dart lihom copier
+
+had cheminli kayt7at liya fih l bundle dyal fosUserBundle
+
+
+__________________________________________________________________________________________________________________
+35-Formation symfony 3 - autorisation permission - gestion user invite de commande - cours 35.mp4
+
+Fichier li fih configuration dyal sécurité est :# app/config/security.yml
+
+--------------------------------------------------START Security.yml----------------------------------------------------
+# app/config/security.yml
+security:
+    encoders:
+        FOS\UserBundle\Model\UserInterface: bcrypt  #HADI HYA LI MAS2OLA 3LA CRYPTAGE DYAL MOT DE PASSE
+
+    role_hierarchy: #HNA KA NDEFINIW GA3 LES ROLES LI 3NDNA F HAD LHIERARCHIE
+        ROLE_ADMIN:       ROLE_USER
+        ROLE_SUPER_ADMIN: ROLE_ADMIN
+
+    providers: #hna kanfolo lih ga3 les utilsateurs kayinin f table user okanfolo luh hna khasak tbasa lina 3la champ username
+        fos_userbundle:
+            id: fos_user.user_provider.username
+
+    firewalls:
+        main:
+            pattern: ^/  #hna kangolo lih mli tal9a liya / slash 
+            user_checker: security.user_checker #chof wach luser m identifier ol en ligne ila kan deja en ligne c'est bon 
+            form_login: #sinon doz form_login
+                provider: fos_userbundle
+                csrf_token_generator: security.csrf.token_manager
+
+            logout:       true
+            anonymous:    true
+
+    access_control:
+        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/, role: ROLE_ADMIN }
+--------------------------------------------------END   Security.yml----------------------------------------------------
+
+Na9dar nzid un user juste par  commande ligne il suffit de tapper php bin/console et cick entrer
+
+
+_________________________________________________________________________________________________________________________
+36-Formation symfony 3 - Override template - Surchargé les templates de FOSUserBundle  - cours 36.mp4
+
+
+Bach ndiro Override l template dyal FOSUserBundle  kan dir dossier smito FOSUserBundle F app/resources aprés kandir wast 
+mano dossier views  (\www\app_symfony\app\Resources\FOSUserBundle\views) o wast mn had views kan7at views dyal FOSUserBundle
+__________________________________________________________________________________________________________________________
+37-Formation symfony 3 - personnaliser les buttons de connexion - Traduction fosuserbundle - cours 37.mp4
+
+bach n applikiw traduction dyalna kanmchiw l 1 fichier smito trans o dak fiche trans kaybasa 3la 1a clé (key)
+
+les fichier dyal traduction kaykono f l bunlde/Resources/translations
+C:\wamp64\www\app_symfony\vendor\friendsofsymfony\user-bundle\Resources\translations
+
+f FOSUsreBundle ila bghit n tconnecta b l'adresse mail 7ta hiya kanmchi l object providers li 3andi f security.yml o f l ID kandir
+id: fosu_ser.user_provider.username_email
+
+
+

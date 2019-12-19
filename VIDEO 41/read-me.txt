@@ -1,0 +1,19 @@
+42-Formation symfony 3 - templating backend - Back office -  Master page symfony - Cours 42.mp4
+_______________________________________________________________________________________________
+43-Formation symfony 3 - Module category - part 1 - cours 43.mp4
+_______________________________________________________________________________________________
+44-Formation symfony 3 - module category - part 2 - cours 44.mp4
+_______________________________________________________________________________________________
+45-Formation symfony 3 - module category part 3 - mohamed idbrahim - cours 45.mp4
+_______________________________________________________________________________________________
+46-Formation symfony 3 - module category - part 4 - mohamed idbrahim - cours 46.mp4
+_______________________________________________________________________________________________
+47-Formation symfony 3 - module category part 5 - mohamed idbrahim [ cours 47.mp4
+_______________________________________________________________________________________________
+48-Formation symfony 3 - module category part 6 - pagination avec pnkPaginatorBundle - mohamed idbrahim.mp4
+_______________________________________________________________________________________________________________
+49-Formation symfony 3 - module post - initialisation part 1 - Cours 49.mp4
+_______________________________________________________________________________________________________________
+50-Formation symfony 3 - module post part 2 - Formulaire de creation et edition - cours 
+___________________________________________________________________________________________________________________
+51-Formation symfony 3 - module post part 3 - Select input avec EntityType - mohamed idbrahim- cours 51.mp4

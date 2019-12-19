@@ -1,0 +1,74 @@
+{% extends 'back.html.twig' %}
+
+{% block content %}
+    <h1>Creation de catégorie</h1>
+    {{ form_start(form) }}   
+
+
+<!-- CHECK WACH KAYN UNE ERREUR ILA KAN KANZID CLASS HAS_ERROR  -->
+<!-- b had la methode kandiro check dyalna  form.libelle.vars.errors -->
+<!-- Form howa nom dyal formulaire libelle nom dyal champs var une objet erreors une array length kanchofo array cha7al fiha  -->
+
+
+<div class="form-group col-md-12 {% if form.libelle.vars.errors | length > 0 %} has-error {% endif %}">
+    <div class="row">
+        <div class="col-md-4"><label>{{form_label(form.libelle)}}</label></div>
+        <div class="col-md-8">{{form_widget(form.libelle, {'required' : false,'attr': {'class': 'form-contro'}})}}</div>
+        {{form_errors(form.libelle)}}
+    </div>
+</div>
+
+
+<div class="form-group col-md-12">
+    <div class="row">
+    <div class="col-md-4"><label>{{form_label(form.description)}}</label></div>
+    <div class="col-md-8">{{form_widget(form.description, {'attr': {'class': 'form-contro'}})}}</div>
+    {{form_errors(form.description)}}
+    </div>
+</div>
+
+
+<div class="form-group col-md-12">
+    <div class="row">
+    <div class="col-md-4"><label>{{form_label(form.slug)}}</label></div>
+    <div class="col-md-8">{{form_widget(form.slug, {'attr': {'class': 'form-contro'}})}}</div>
+    {{form_errors(form.slug)}}
+    </div>
+</div>
+
+
+<div class="form-group col-md-12">
+    <div class="row">
+    <div class="col-md-4"><label>{#{{form_label(form.createAt)}}#}</label></div>
+    <div class="col-md-8">{#{{form_widget(form.createAt, {'attr': {'class': 'form-contro'}})}}#}</div>
+    {#{{form_errors(form.createAt)}}#}
+    </div>
+</div>
+
+
+<div class="form-group col-md-12">
+    <div class="row">
+    <div class="col-md-4"><label>{#{{form_label(form.updateAt)}}#}</label></div>
+    <div class="col-md-8">{#{{form_widget(form.updateAt, {'attr': {'class': 'form-contro'}})}}#}</div>
+    {#{{form_errors(form.updateAt)}}#}
+    </div>
+</div>
+
+    <ul>
+        <a href="{{ path('admin_category_index') }}" class="btn btn-success"><i class="fa fa-arrow-left"></i>Back to the list</a>
+         <input type="submit" class = "btn btn-primary" value="Create" />
+    </ul>
+       
+    {{ form_end(form) }}
+{% endblock %}
+
+
+
+{% block breadcrumb %}
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Tableau de bord</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Nouvelle Catégorie</li>
+  </ol>
+</nav>
+{% endblock %}

@@ -1,0 +1,85 @@
+{% extends 'back.html.twig' %}
+
+{% block content %}
+    <h1>Post creation</h1>
+
+    {{ form_start(form) }}
+        <div class="form-group col-md-12">
+            <div class="row">
+                <div class="col-md-4"><label>{{form_label(form.title)}}</label></div>
+                <div class="col-md-8">{{form_widget(form.title, {'attr': {'class': 'form-contro'}})}}</div>
+                {{form_errors(form.title)}}
+            </div>
+        </div>
+
+        <div class="form-group col-md-12">
+            <div class="row">
+                <div class="col-md-4"><label>{{form_label(form.body)}}</label></div>
+                <div class="col-md-8">{{form_widget(form.body, {'attr': {'class': 'form-contro'}})}}</div>
+                {{form_errors(form.body)}}
+            </div>
+        </div>
+
+
+        <div class="form-group col-md-12">
+            <div class="row">
+                <div class="col-md-4"><label>{{form_label(form.slug)}}</label></div>
+                <div class="col-md-8">{{form_widget(form.slug, {'attr': {'class': 'form-contro'}})}}</div>
+                {{form_errors(form.slug)}}
+            </div>
+        </div>
+
+
+        <div class="form-group col-md-12">
+            <div class="row">
+                <div class="col-md-4"><label>{{form_label(form.image)}}</label></div>
+                <div class="col-md-8">{{form_widget(form.image, {'attr': {'class': 'form-contro'}})}}</div>
+                {{form_errors(form.image)}}
+            </div>
+        </div>  
+
+
+        <div class="form-group col-md-12">
+            <div class="row">
+                <div class="col-md-4"><label>{{form_label(form.datePublish)}}</label></div>
+                <div class="col-md-8">{{form_widget(form.datePublish, {'attr': {'class': 'form-contro'}})}}</div>
+                {{form_errors(form.datePublish)}}
+            </div>
+        </div>  
+
+
+        <div class="form-group col-md-12">
+            <div class="row">
+                <div class="col-md-4"><label>{{form_label(form.categories)}}</label></div>
+                <div class="col-md-8">{{form_widget(form.categories, {'attr': {'class': 'form-contro'}})}}</div>
+                {{form_errors(form.categories)}}
+            </div>
+        </div> 
+
+
+
+
+
+
+
+    <ul>
+        <a href="{{ path('admin_post_index') }}" class="btn btn-success"><i class="fa fa-arrow-left"></i>Back to the list</a>
+         <input type="submit" class = "btn btn-primary" value="Create" />
+    </ul>
+
+
+    {{ form_end(form) }}
+
+
+
+
+
+{% endblock %}
+{% block breadcrumb %}
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Tableau de bord</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Edition post</li>
+  </ol>
+</nav>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends 'back.html.twig' %}
+
+{% block content %}
+    <h1>Post</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ post.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ post.title }}</td>
+            </tr>
+            <tr>
+                <th>Body</th>
+                <td>{{ post.body }}</td>
+            </tr>
+            <tr>
+                <th>Slug</th>
+                <td>{{ post.slug }}</td>
+            </tr>
+            <tr>
+                <th>Datepublish</th>
+                <td>{% if post.datePublish %}{{ post.datePublish|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+
+            <tr>
+                <th>Image</th>
+                <td class="col-md-4"><img src="{{asset('uploads/' ~ post.image)}}" width="300" height="auto" alt=""></td>
+            </tr>            
+        </tbody>
+    </table>
+
+
+
+
+
+    <ul class="list-unstyled">
+        <li style="margin-top:20px; margin-bottom:20px">
+            <a href="{{ path('admin_post_index') }}" class="btn btn-primary btn-block">Back to the list</a>
+        </li>
+        <li style="margin-bottom:20px">
+            <a href="{{ path('admin_post_edit', { 'id': post.id }) }}" class="btn btn-warning btn-block">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete" class="btn btn-primary btn-success btn-block">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+
+{% endblock %}
+
+
+{% block breadcrumb %}
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Tableau de bord</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Voir post</li>
+  </ol>
+</nav>
+{% endblock %}
